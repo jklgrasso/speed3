@@ -1,0 +1,81 @@
+9/3/2024
+I will start adding notes here in addition to the "programs". Are they programs yet lol?
+I need to setup tkinter to have if statements for things like over heating. I can 
+add something like:
+
+fred["fg"] = "red"
+fred["bg"] = "blue"
+def coolant_temperature_oh():
+    if coolant_temperature_oh() is True:
+        ttk.Label(frm, fg, text=f"Coolant Temp: {coolant_temperature()}").grid(column=0, row=3)
+
+coolant_temperature_oh()
+
+I can throw the function in the while loop I talked about in the vehicle_data.py 
+file. 
+
+I also need to setup a window manager, and maybe coupling ("Coupling Widget Variables").
+
+I can do some bindings to make buttons look and feel better. Like making them a certain
+color when pressed. 
+
+I'd need a file "manager" for logging. Definitly don't let this make memory leaks. If
+the file gets too big I could have it make another file. Then append the initial file
+once the datalogging stops. 
+
+I also need a way to have safe shutdowns when the car turns off. I don't know what
+I need to do that.
+
+I should update this with what I accomplished and what still needs to be done along
+with what else I see needs to be done. Dating everything!
+
+----------------------------------------------------------------------------------------------
+
+9/5/24
+
+Looking at a coworkers tkinter implimentation 
+(https://github.com/jacobktm/stress-scripts/blob/main/test_gui.py), he uses csv_writer to 
+make log files.
+
+Unesecery paragraph because I added the link after I wrote the rest of this :facepalm:...
+
+I could use this to create data logs for the vehicle. I am thinking of using some of this
+code for an example and inspiration for what and how to do my program. There are a lot
+of extra things he has that I probably wont need. Just for extra detail on getting data 
+from the system that his program is running on. Maybe I will need to look at this though
+because I may need to do more than I am currently anticipating. 
+
+I am mainly looking at the "RealTimeOutputGui" class. This seems to have the tkinter setup.
+There is a lot of initialization that I will probably have to do as well to get everything
+ready to poll the ECU for data. In this class, lower down, there is a create_widgets function.
+This seems to make more sense than how I am currently going about writing this gui. It looks
+like he setup the data to be put in ranges. I am not sure why yet. There are other functions
+like "create_treeview", "update_treeview", and so on. Some of the data early on in this
+class is static. 
+
+What does "self" mean. Is it just to look for other things in this file? 
+
+At the end of this class he calls "self.root.after(66, self.update_data)". I assume this is how
+everything updates. Also while looking at this, I noticed in the function "update_data", 
+"self" is a param. So that now makes sense. You write the initializations, then "call" them from
+this class by using self. Right?
+
+Under this class is where the mainloop() is called. I need to get the rest of the data tested to
+make sure that everything does work as intended before getting ahead of myself. I don't want to
+write all of this just to not be able to use it because the OBD library isn't actually what I
+want. Or something like that. 
+
+9/6/24
+
+I am starting to write some of the classes and functions for the gui. I want to use csv_writer
+for the data logs. I haven't actually read the docs on it yet but I will in the future. 
+
+I am thinking I may use PyQT instead. Looking more into tkinter I see that it will be a LOT of 
+work to get it how I want. Like A LOT! If PyQT will be "easier" to get this nice looking I will
+switch to that. 
+
+
+
+TODO from this day:
+Read CSV docs for data logging
+Write the requirments file for easy install with pip. Maybe even write a bash installer
