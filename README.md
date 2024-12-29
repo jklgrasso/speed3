@@ -1,5 +1,7 @@
-# Speed Pi
+# Speed3
 
+## Notes
+---
 
 ## Mini Displays
 Parts:
